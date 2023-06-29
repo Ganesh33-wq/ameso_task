@@ -1,0 +1,84 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>Update Employee</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+              &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <form #employeeForm="ngForm">
+        <div class="table-content">
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="Taskname" class="p-t-b-10">Task Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="Taskname" required maxlength="255"
+                [(ngModel)]="editTaskForm.Taskname" name="Taskname" #Taskname="ngModel">
+              <div *ngIf="Taskname.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!Taskname.errors?.['required']">
+                  First Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="Description" class="p-t-b-10">Description<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="Description" required maxlength="255"
+                [(ngModel)]="editTaskForm.Description" name="Description" #Description="ngModel">
+              <div *ngIf="Description.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!Description.errors?.['required']">
+                  Last Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Status<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <textarea class="form-control" id="Completed" required [(ngModel)]="editTaskForm.Completed" name="Completed"
+              #Completed="ngModel"></textarea>
+              <div *ngIf="Completed.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!Completed.errors?.['required']">
+                  Completed is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">Start Date<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" id="Startdate" required [(ngModel)]="editTaskForm.Startdate" name="Startdate"
+              #Completed="ngModel">
+            </div>
+          </div>
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label class="p-t-b-10">End Date<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" id="Enddate" required [(ngModel)]="editTaskForm.Enddate" name="Enddate"
+              #Completed="ngModel">
+            </div>
+          </div>
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="EditEmployee(employeeForm.form.valid)">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
